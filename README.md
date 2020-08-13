@@ -4,7 +4,7 @@ README TO BE FLESHED OUT LATER.
 
 - Basic form to embed youtube url given.
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.0.4.
+
 
 ## Development server
 
