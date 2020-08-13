@@ -20,14 +20,14 @@ export class GrumpFormComponent implements OnInit {
       console.log("please use a youtube URL")
     }
     else {
-      
+
       console.log(matchedString)
       this.embedURL = `https://www.youtube.com/embed/${matchedString[1]}?&autoplay=1`
       console.log(matchedString[1]);
       console.log(this.embedURL)
       this.haveURL = !this.haveURL
     }
-   
+
   }
 
   ngOnInit(): void {
