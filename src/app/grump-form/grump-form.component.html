@@ -1,0 +1,13 @@
+<p>grump-form works!</p>
+<form [formGroup]="URLForm" (ngSubmit)="onSubmit()" *ngIf="!haveURL">
+  <input
+    type="text"
+    formControlName="videoURL"
+    placeholder="Paste Video URL Here"
+  />
+  <button type="submit">Load Video</button>
+</form>
+<p>{{ URLForm.value | json }}</p>
+<iframe width="560" height="315"
+[src]="embedURL | safeURL" frameborder="0" 
+allowfullscreen *ngIf="haveURL"></iframe>
