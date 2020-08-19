@@ -4,6 +4,8 @@ import { ReactiveFormsModule } from '@angular/forms'
 import { AppComponent } from './app.component';
 import { GrumpFormComponent } from './grump-form/grump-form.component';
 import { SafeURLPipe } from './safe-url.pipe'
+import { HttpClientModule } from '@angular/common/http'
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -12,7 +14,8 @@ import { SafeURLPipe } from './safe-url.pipe'
   ],
   imports: [
     BrowserModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

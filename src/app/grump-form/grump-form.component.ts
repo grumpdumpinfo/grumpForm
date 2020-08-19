@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms'
-import { sharedStylesheetJitUrl } from '@angular/compiler';
+import { HttpClient } from '@angular/common/http'
+import { VideoFetchService } from '../video-fetch.service'
 
 @Component({
   selector: 'grump-form',
@@ -8,11 +9,20 @@ import { sharedStylesheetJitUrl } from '@angular/compiler';
   styleUrls: ['./grump-form.component.css']
 })
 export class GrumpFormComponent implements OnInit {
+
+  constructor(
+    private http: HttpClient,
+    private VideoFetchService: VideoFetchService
+  ) { }
+
   URLForm = new FormGroup({
     videoURL: new FormControl('')
   })
   haveURL = false
   embedURL = ""
+  cards = {}
+  googleFetch = {}
+
   onSubmit() {
     const regex = /v=(.+?)(&|$)/;
     let matchedString = this.URLForm.value.videoURL.match(regex)
@@ -20,17 +30,16 @@ export class GrumpFormComponent implements OnInit {
       console.log("please use a youtube URL")
     }
     else {
-
-      console.log(matchedString)
-      this.embedURL = `https://www.youtube.com/embed/${matchedString[1]}?&autoplay=1`
-      console.log(matchedString[1]);
-      console.log(this.embedURL)
+      this.embedURL = `https://www.youtube.com/embed/${matchedString[1]}?&autoplay=0&enablejsapi`
+      this.VideoFetchService.getVideo(`${matchedString[1]}`).subscribe(data => { console.log(data); this.googleFetch = data })
       this.haveURL = !this.haveURL
     }
 
   }
 
-  ngOnInit(): void {
+  ngOnInit() {
+    
   }
 
 }
+ 

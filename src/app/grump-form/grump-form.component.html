@@ -7,6 +7,7 @@
   <button type="submit">Load Video</button>
 </form>
 <p>{{ URLForm.value | json }}</p>
-<iframe width="560" height="315"
+<iframe width="720" height="405"
 [src]="embedURL | safeURL" frameborder="0" 
 allowfullscreen *ngIf="haveURL"></iframe>
+<div *ngIf="cards">google fetch: {{ cards.items[0].snippet.title }}</div>
