@@ -20,8 +20,7 @@ export class GrumpFormComponent implements OnInit {
   })
   haveURL = false
   embedURL = ""
-  cards = {}
-  googleFetch = {}
+  googleFetch = {};
 
   onSubmit() {
     const regex = /v=(.+?)(&|$)/;
@@ -31,15 +30,13 @@ export class GrumpFormComponent implements OnInit {
     }
     else {
       this.embedURL = `https://www.youtube.com/embed/${matchedString[1]}?&autoplay=0&enablejsapi`
-      this.VideoFetchService.getVideo(`${matchedString[1]}`).subscribe(data => { console.log(data); this.googleFetch = data })
-      this.haveURL = !this.haveURL
+      this.VideoFetchService.getVideo(`${matchedString[1]}`).subscribe(data => { console.log(data); this.googleFetch = data; this.haveURL = !this.haveURL })
+      
     }
-
   }
 
   ngOnInit() {
-    
+
   }
 
 }
- 
