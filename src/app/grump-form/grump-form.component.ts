@@ -20,17 +20,19 @@ export class GrumpFormComponent implements OnInit {
   })
   haveURL = false
   embedURL = ""
-  googleFetch = {};
+  googleFetch = {}
+  videoID = ""
 
   onSubmit() {
     const regex = /v=(.+?)(&|$)/;
     let matchedString = this.URLForm.value.videoURL.match(regex)
+    this.videoID = matchedString[1]
     if (!matchedString) {
       console.log("please use a youtube URL")
     }
     else {
       this.embedURL = `https://www.youtube.com/embed/${matchedString[1]}?&autoplay=0&enablejsapi`
-      this.VideoFetchService.getVideo(`${matchedString[1]}`).subscribe(data => { console.log(data); this.googleFetch = data; this.haveURL = !this.haveURL })
+      this.VideoFetchService.getVideo(`${matchedString[1]}`).subscribe(data => { this.googleFetch = data; this.haveURL = !this.haveURL })
       
     }
   }
