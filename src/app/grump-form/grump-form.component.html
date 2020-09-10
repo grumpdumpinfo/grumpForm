@@ -11,4 +11,4 @@
 [src]="embedURL | safeURL" frameborder="0" 
 allowfullscreen *ngIf="haveURL"></iframe>
 <div *ngIf="haveURL"><h2>{{ haveURL ? googleFetch.items[0].snippet.title : embedURL }}</h2></div>
-<app-data-entry *ngIf="haveURL" [videoID]="videoID"></app-data-entry>
+<app-data-entry *ngIf="haveURL" [videoID]="videoID" [haveURL]="haveURL" [googleFetch]="googleFetch" ></app-data-entry>

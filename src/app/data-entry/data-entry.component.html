@@ -1,2 +1,15 @@
-<p>VideoID given: {{ videoID }}</p>
-<input type="text" [formControl]="videoID">
+<form [formGroup]="dataForm" (ngSubmit)="onSubmit()" >
+    <label>VideoID: </label>
+    <input
+      type="text"
+      formControlName="videoID"
+      placeholder="{{videoID}}"
+    />
+    <label>Video Title: </label>
+    <input
+    type="text"
+    formControlName="videoTitle"
+    placeholder="{{haveURL ? googleFetch.items[0].snippet.title : haveURL }}"
+    />
+    <button type="submit">Submit Data</button>
+  </form>

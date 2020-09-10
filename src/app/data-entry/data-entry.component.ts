@@ -9,11 +9,17 @@ import { FormGroup, FormControl } from '@angular/forms'
 export class DataEntryComponent implements OnInit {
 
   @Input() videoID: String;
+  @Input() haveURL: Boolean;
+  @Input() googleFetch: any; 
   constructor() { }
 
   dataForm = new FormGroup({
-    videoID: new FormControl({value: 'stuff', disabled: true})
+    videoID: new FormControl({value: this.videoID, disabled: true}),
+    videoTitle: new FormControl({value: this.googleFetch, disabled: true})
   })
+  onSubmit(){
+    console.log('submit works')
+  }
 
   ngOnInit(): void {
   }
