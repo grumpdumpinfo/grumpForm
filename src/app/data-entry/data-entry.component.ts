@@ -10,7 +10,8 @@ export class DataEntryComponent implements OnInit {
 
   @Input() videoID: String;
   @Input() haveURL: Boolean;
-  @Input() googleFetch: any; 
+  @Input() googleFetch: any;
+  
   constructor() { }
 
   dataForm = new FormGroup({

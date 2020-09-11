@@ -4,10 +4,12 @@
       type="text"
       formControlName="videoID"
       placeholder="{{videoID}}"
+      size="{{videoID.length}}"
     />
     <label>Video Title: </label>
     <input
     type="text"
+    size="{{googleFetch.items[0].snippet.title.length - 3}}"
     formControlName="videoTitle"
     placeholder="{{haveURL ? googleFetch.items[0].snippet.title : haveURL }}"
     />
