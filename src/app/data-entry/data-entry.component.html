@@ -1,17 +1,23 @@
-<form [formGroup]="dataForm" (ngSubmit)="onSubmit()" >
-    <label>VideoID: </label>
-    <input
-      type="text"
-      formControlName="videoID"
-      placeholder="{{videoID}}"
-      size="{{videoID.length}}"
-    />
-    <label>Video Title: </label>
-    <input
+<form [formGroup]="dataForm" (ngSubmit)="onSubmit()" id="VideoData">
+  <label>VideoID: </label>
+  <input
     type="text"
-    size="{{googleFetch.items[0].snippet.title.length - 3}}"
+    formControlName="videoID"
+    placeholder="{{ videoID }}"
+    size="{{ videoID.length }}"
+  />
+  <label>Video Title: </label>
+  <input
+    type="text"
+    size="{{ googleFetch.items[0].snippet.title.length - 3 }}"
     formControlName="videoTitle"
-    placeholder="{{haveURL ? googleFetch.items[0].snippet.title : haveURL }}"
-    />
-    <button type="submit">Submit Data</button>
-  </form>
+    placeholder="{{ haveURL ? googleFetch.items[0].snippet.title : haveURL }}"
+  />
+  <label>Game Played: </label>
+  <input
+  type="text"
+  formControlName="gameTitle"
+  placeholder="game name here"
+  />
+  <button type="submit">Submit Data</button>
+</form>
