@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, Validators } from '@angular/forms'
-import { HttpClient } from '@angular/common/http'
+import { FormGroup, FormControl} from '@angular/forms'
 import { VideoFetchService } from '../video-fetch.service'
-import { getInterpolationArgsLength } from '@angular/compiler/src/render3/view/util';
 
 @Component({
   selector: 'grump-form',
@@ -12,18 +10,17 @@ import { getInterpolationArgsLength } from '@angular/compiler/src/render3/view/u
 export class GrumpFormComponent implements OnInit {
 
   constructor(
-    private http: HttpClient,
     private VideoFetchService: VideoFetchService
   ) { }
 
   URLForm = new FormGroup({
     videoURL: new FormControl('')
   })
-  haveURL = false
-  embedURL = ""
-  googleFetch = {}
-  videoID = ""
-  
+  haveURL = false;
+  embedURL: String;
+  googleFetch: Object;
+  videoID = "videoID needed";
+
   onSubmit() {
     // define regex that finds Youtube video code
     const regex = /v=(.+?)(&|$)/;
@@ -38,7 +35,7 @@ export class GrumpFormComponent implements OnInit {
       this.embedURL = `https://www.youtube.com/embed/${matchedString[1]}?&autoplay=0&enablejsapi`
       // find video title with video-fetch service
       this.VideoFetchService.getVideo(`${matchedString[1]}`).subscribe(data => { this.googleFetch = data; this.haveURL = !this.haveURL })
-      
+
     }
   }
 

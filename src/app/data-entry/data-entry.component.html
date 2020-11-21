@@ -13,11 +13,19 @@
     formControlName="videoTitle"
     placeholder="{{ haveURL ? googleFetch.items[0].snippet.title : haveURL }}"
   />
-  <label>Game Played: </label>
+  <label>Video Category: </label>
   <input
   type="text"
-  formControlName="gameTitle"
+  formControlName="category"
+  placeholder="video category here"
+  size="30"
+  />
+  <label>Game Title: </label>
+  <input
+  type="text"
+  formControlName="gameName"
   placeholder="game name here"
+  size="30"
   />
   <button type="submit">Submit Data</button>
 </form>

@@ -16,10 +16,22 @@ export class DataEntryComponent implements OnInit {
 
   dataForm = new FormGroup({
     videoID: new FormControl({value: this.videoID, disabled: true}),
-    videoTitle: new FormControl({value: this.googleFetch, disabled: true})
+    videoTitle: new FormControl({value: this.googleFetch, disabled: true}),
+    category: new FormControl(''),
+    gameName: new FormControl('')
   })
+
+  submitData = {}
+  
   onSubmit(){
-    console.log('submit works')
+    let submitData = {
+      videoID: this.videoID,
+      videoTitle: this.googleFetch.items[0].snippet.title,
+      dataForm: this.dataForm.value
+    }
+    console.log(submitData)
+    this.submitData = submitData
+    console.log(this.submitData)
   }
 
   ngOnInit(): void {
